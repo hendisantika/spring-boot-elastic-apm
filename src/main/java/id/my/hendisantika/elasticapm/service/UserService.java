@@ -34,4 +34,8 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public void delete(Integer id) {
+        sleep();
+        userRepository.deleteById(id);
+    }
 }
