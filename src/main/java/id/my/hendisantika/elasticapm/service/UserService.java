@@ -1,5 +1,6 @@
 package id.my.hendisantika.elasticapm.service;
 
+import co.elastic.apm.api.CaptureSpan;
 import id.my.hendisantika.elasticapm.domain.User;
 import id.my.hendisantika.elasticapm.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

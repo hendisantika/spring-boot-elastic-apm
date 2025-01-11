@@ -1,5 +1,7 @@
 package id.my.hendisantika.elasticapm.task;
 
+import co.elastic.apm.api.CaptureSpan;
+import co.elastic.apm.api.CaptureTransaction;
 import id.my.hendisantika.elasticapm.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
