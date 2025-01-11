@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-elastic-apm
@@ -26,4 +28,10 @@ public class UserService {
         sleep();
         return userRepository.save(user);
     }
+
+    public Optional<User> get(Integer id) {
+        sleep();
+        return userRepository.findById(id);
+    }
+
 }
