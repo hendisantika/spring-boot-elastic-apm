@@ -3,7 +3,7 @@ services:
     image: apm-java/app:1.0.0
     build:
       context: ../
-      dockerfile: docker/java/Dockerfile
+      dockerfile: ./docker/java/Dockerfile
       args:
         - "JAR_PATH=target/apm-0.0.1-SNAPSHOT.jar"
     environment:
@@ -29,7 +29,7 @@ services:
   elasticsearch:
     image: apm-java/elasticsearch:1.0.0
     build:
-      context: elasticsearch
+      context: ./docker/elasticsearch
       dockerfile: Dockerfile
     environment:
       - cluster.name=apm-java
@@ -45,7 +45,7 @@ services:
   apm:
     image: apm-java/apm-server:1.0.0
     build:
-      context: apm-server
+      context: ./docker/apm-server
       dockerfile: Dockerfile
     ports:
       - "8200:8200"
