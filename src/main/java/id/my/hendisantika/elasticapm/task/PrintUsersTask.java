@@ -28,4 +28,11 @@ public class PrintUsersTask {
         log.info("run scheduled test");
         doExecute();
     }
+
+    @CaptureTransaction(type = "Task", value = "PrintUsers")
+    private void doExecute() {
+        userRepository.findAll().forEach(user -> log.debug(user.getEmail()));
+        sleep();
+    }
+
 }
