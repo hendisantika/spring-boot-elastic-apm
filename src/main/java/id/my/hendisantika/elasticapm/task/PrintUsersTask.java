@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-elastic-apm
@@ -35,4 +37,15 @@ public class PrintUsersTask {
         sleep();
     }
 
+    @SuppressWarnings("checkstyle:MagicNumber")
+    @CaptureSpan("someCustomOperation")
+    private void sleep() {
+        try {
+            Random random = new Random();
+            int milis = random.nextInt(120 - 20 + 1) + 20;
+            Thread.sleep(milis);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
 }
