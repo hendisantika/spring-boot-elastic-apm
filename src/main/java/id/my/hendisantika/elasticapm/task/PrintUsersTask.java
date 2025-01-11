@@ -3,6 +3,7 @@ package id.my.hendisantika.elasticapm.task;
 import id.my.hendisantika.elasticapm.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,4 +22,10 @@ import org.springframework.stereotype.Service;
 public class PrintUsersTask {
 
     private final UserRepository userRepository;
+
+    @Scheduled(fixedDelayString = "5000")
+    public void execute() {
+        log.info("run scheduled test");
+        doExecute();
+    }
 }
