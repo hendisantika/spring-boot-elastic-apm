@@ -1,6 +1,7 @@
 package id.my.hendisantika.elasticapm.controller;
 
 import id.my.hendisantika.elasticapm.domain.User;
+import id.my.hendisantika.elasticapm.exception.UserNotFoundException;
 import id.my.hendisantika.elasticapm.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
