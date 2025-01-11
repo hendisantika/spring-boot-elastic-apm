@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Random;
 
 /**
  * Created by IntelliJ IDEA.
@@ -37,5 +38,18 @@ public class UserService {
     public void delete(Integer id) {
         sleep();
         userRepository.deleteById(id);
+    }
+
+    @SuppressWarnings("checkstyle:MagicNumber")
+    @CaptureSpan("otherOperations")
+    private void sleep() {
+        try {
+            Random random = new Random();
+            int milis = random.nextInt(100 - 20 + 1) + 20;
+            log.info(String.format("Sleep ---> %s ms", milis));
+            Thread.sleep(milis);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
     }
 }
