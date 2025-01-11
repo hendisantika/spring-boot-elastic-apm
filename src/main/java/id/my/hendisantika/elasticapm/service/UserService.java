@@ -1,5 +1,6 @@
 package id.my.hendisantika.elasticapm.service;
 
+import id.my.hendisantika.elasticapm.domain.User;
 import id.my.hendisantika.elasticapm.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,4 +22,8 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
+    public User save(User user) {
+        sleep();
+        return userRepository.save(user);
+    }
 }
