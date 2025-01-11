@@ -392,6 +392,6 @@ public class PrintUsersTask {
 3. https://www.elastic.co/guide/en/apm/server/current/running-on-docker.html
 4. https://www.elastic.co/guide/en/apm/agent/java/current/index.html
 5. https://www.elastic.co/guide/en/apm/server/current/index.html
-6. https://github.com/cosminseceleanu/tutorials
+6. https://github.com/hendisantika/spring-boot-elastic-apm/blob/main/docs/index.md
 7. https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 8. https://www.elastic.co/guide/en/kibana/current/index.html
