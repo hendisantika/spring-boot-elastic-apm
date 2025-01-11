@@ -3,6 +3,9 @@ package id.my.hendisantika.elasticapm.controller;
 import id.my.hendisantika.elasticapm.domain.User;
 import id.my.hendisantika.elasticapm.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,4 +40,11 @@ public class UserController {
         return userService.save(user);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable("id") Integer id) {
+        User user = userService.get(id).orElseThrow(UserNotFoundException::new);
+        userService.delete(user.getId());
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
