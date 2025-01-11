@@ -1,7 +1,10 @@
 package id.my.hendisantika.elasticapm.controller;
 
+import id.my.hendisantika.elasticapm.domain.User;
 import id.my.hendisantika.elasticapm.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,4 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private UserService userService;
+
+    @GetMapping("/{id}")
+    public User get(@PathVariable("id") Integer id) {
+        return userService.get(id).orElseThrow(UserNotFoundException::new);
+    }
 }
