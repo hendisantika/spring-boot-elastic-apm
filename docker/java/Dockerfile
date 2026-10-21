@@ -1,4 +1,4 @@
-FROM temurin:23
+FROM eclipse-temurin:25
 
 EXPOSE 8080
 RUN mkdir -p /opt/app
